@@ -11,7 +11,7 @@
 /out/
 
 # keystone.js
-# .keystone
+.keystone
 
 # production
 /build

@@ -3,7 +3,9 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "dev": "keystone-next",
+        "start": "keystone-next",
+        "build": "keystone-next build",
+        "serve": "keystone-next start",
         "seed-data": "keystone-next --seed-data"
     },
     "dependencies": {
