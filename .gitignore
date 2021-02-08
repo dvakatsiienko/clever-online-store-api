@@ -10,6 +10,9 @@
 /.next/
 /out/
 
+# keystone.js
+# .keystone
+
 # production
 /build
 
