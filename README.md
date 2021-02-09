@@ -11,7 +11,7 @@ An application is built with the following technology solutions:
 
 📡 **Backend**:
 
--   KeystoneJS
+-   KeystoneJS CMS
 -   MongoDB
 -   Stripe (payment service)
 -   Typescript

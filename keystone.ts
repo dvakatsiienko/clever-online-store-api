@@ -31,24 +31,18 @@ const { withAuth } = createAuth({
         fields: [ 'name', 'email', 'password' ],
         // Add initial roles here
     },
+    passwordResetLink: {
+        async sendToken(args) {
+            console.log(args);
+        },
+    },
 });
-
-console.log(process.env.NODE_ENV);
-console.log(
-    process.env.NODE_ENV === 'development'
-        ? FRONTEND_URL_DEV
-        : FRONTEND_URL_PROD,
-);
 
 export default withAuth(
     config({
         server: {
             cors: {
-                origin: [
-                    process.env.NODE_ENV === 'development'
-                        ? FRONTEND_URL_DEV
-                        : FRONTEND_URL_PROD,
-                ],
+                origin:      [ FRONTEND_URL_DEV, FRONTEND_URL_PROD ],
                 credentials: true,
             },
         },
