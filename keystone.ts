@@ -14,7 +14,8 @@ import { insertSeedData } from './seed-data';
 const {
     DATABASE_URL = 'mongodb://localhost/keystone-sick-fits-tutorial',
     COOKIE_SECRET,
-    FRONTEND_URL,
+    FRONTEND_URL_DEV,
+    FRONTEND_URL_PROD,
 } = process.env;
 
 const sessionConfig = {
@@ -36,7 +37,11 @@ export default withAuth(
     config({
         server: {
             cors: {
-                origin:      [ FRONTEND_URL ],
+                origin: [
+                    process.env.NODE_ENV === 'development'
+                        ? FRONTEND_URL_DEV
+                        : FRONTEND_URL_PROD,
+                ],
                 credentials: true,
             },
         },
