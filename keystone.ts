@@ -33,6 +33,13 @@ const { withAuth } = createAuth({
     },
 });
 
+console.log(process.env.NODE_ENV);
+console.log(
+    process.env.NODE_ENV === 'development'
+        ? FRONTEND_URL_DEV
+        : FRONTEND_URL_PROD,
+);
+
 export default withAuth(
     config({
         server: {
