@@ -11,6 +11,7 @@ import {
 import { User, Product, ProductImage, CartItem } from './schemas';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib';
+import { extendGraphqlSchema } from './mutations';
 
 const {
     DATABASE_URL = 'mongodb://localhost/keystone-sick-fits-tutorial',
@@ -74,5 +75,6 @@ export default withAuth(
         session: withItemData(statelessSessions(sessionConfig), {
             User: 'id',
         }),
+        extendGraphqlSchema,
     }),
 );
