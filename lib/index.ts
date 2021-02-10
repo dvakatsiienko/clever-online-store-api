@@ -1,2 +1,2 @@
-export * from './formatMoney';
 export * from './mail';
+export * from './stripeConfig';

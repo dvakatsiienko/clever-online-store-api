@@ -2,19 +2,17 @@
 import { graphQLSchemaExtension } from '@keystone-next/keystone/schema';
 
 /* Instruments */
-import { addToCart } from './addToCart';
-
-const gql = String.raw;
+import { gql } from '../helpers';
+import * as resolvers from './resolvers';
 
 export const extendGraphqlSchema = graphQLSchemaExtension({
     typeDefs: gql`
         type Mutation {
             addToCart(productId: ID): CartItem
+            checkout(token: String!): Order
         }
     `,
     resolvers: {
-        Mutation: {
-            addToCart,
-        },
+        Mutation: resolvers,
     },
 });

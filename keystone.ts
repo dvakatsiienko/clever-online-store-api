@@ -8,7 +8,7 @@ import {
 } from '@keystone-next/keystone/session';
 
 /* Instruments */
-import { User, Product, ProductImage, CartItem } from './schemas';
+import * as schemas from './schemas';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib';
 import { extendGraphqlSchema } from './mutations';
@@ -57,13 +57,8 @@ export default withAuth(
                 }
             },
         },
-        lists: createSchema({
-            User,
-            Product,
-            ProductImage,
-            CartItem,
-        }),
-        ui: {
+        lists: createSchema(schemas),
+        ui:    {
             /**
              * Show the UI only for people who passed thi test.
              */

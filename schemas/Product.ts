@@ -6,10 +6,8 @@ export const Product = list({
     // TODO: access
     fields: {
         name:        text({ isRequired: true }),
-        description: text({
-            ui: { displayMode: 'textarea' },
-        }),
-        status: select({
+        description: text({ ui: { displayMode: 'textarea' } }),
+        status:      select({
             options: [
                 { label: 'Draft', value: 'DRAFT' },
                 { label: 'Available', value: 'AVAILABLE' },

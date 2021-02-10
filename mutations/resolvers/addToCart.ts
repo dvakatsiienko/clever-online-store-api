@@ -2,7 +2,7 @@
 import { KeystoneContext } from '@keystone-next/types';
 
 /* Instruments */
-import * as types from '../.keystone/schema-types';
+import * as types from '../../.keystone/schema-types';
 
 export const addToCart = async (
     root: any,
