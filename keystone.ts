@@ -8,10 +8,10 @@ import {
 } from '@keystone-next/keystone/session';
 
 /* Instruments */
-import * as schemas from './schemas';
+import * as schemas from './src/schemas';
+import { sendPasswordResetEmail } from './src/lib';
+import { extendGraphqlSchema } from './src/mutations';
 import { insertSeedData } from './seed-data';
-import { sendPasswordResetEmail } from './lib';
-import { extendGraphqlSchema } from './mutations';
 
 const {
     DATABASE_URL = 'mongodb://localhost/keystone-sick-fits-tutorial',

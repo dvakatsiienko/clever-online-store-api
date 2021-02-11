@@ -22,7 +22,7 @@
         /* Module resolution */
         "moduleResolution": "node",
         "baseUrl": ".",
-        "paths": { "@/*": ["./*"] },
+        "paths": { "@/*": ["src/*"] },
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
 
