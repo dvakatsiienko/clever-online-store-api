@@ -39,30 +39,56 @@ export const checkout = async (
             console.log(error);
             throw new Error(error.message);
         });
+
+    const orderItems = cartItems.map(cartItem => {
+        const orderItem = {
+            name:        cartItem.product.name,
+            description: cartItem.product.description,
+            price:       cartItem.product.price,
+            quantity:    cartItem.quantity,
+            photo:       { connect: { id: cartItem.product.photo.id } },
+        };
+
+        return orderItem;
+    });
+
+    const order = await ctx.lists.Order.createOne({
+        data: {
+            total:  charge.amount,
+            charge: charge.id,
+            items:  { create: orderItems },
+            user:   { connect: { id: userId } },
+        },
+    });
+
+    const carItemIds = user.cart.map(cartItem => cartItem.id);
+    await ctx.lists.CartItem.deleteMany({ ids: carItemIds });
+
+    return order;
 };
 
 /* Helpers */
 const resolveFields = gql`
-id
-name
-email
-cart {
     id
-    quantity
-    product {
+    name
+    email
+    cart {
         id
-        name
-        price
-        description
-        photo {
+        quantity
+        product {
             id
-            image {
+            name
+            price
+            description
+            photo {
                 id
-                publicUrlTransformed
+                image {
+                    id
+                    publicUrlTransformed
+                }
             }
         }
     }
-}
 `;
 
 /* Types */

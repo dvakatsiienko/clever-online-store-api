@@ -20,11 +20,6 @@ const {
     FRONTEND_URL_PROD,
 } = process.env;
 
-const sessionConfig = {
-    maxAge: 60 * 60 * 24 * 360,
-    secret: COOKIE_SECRET,
-};
-
 const { withAuth } = createAuth({
     listKey:       'User',
     identityField: 'email',
@@ -60,15 +55,21 @@ export default withAuth(
         lists: createSchema(schemas),
         ui:    {
             /**
-             * Show the UI only for people who passed thi test.
+             * Show the UI only for people who passed the test.
              */
             isAccessAllowed: ({ session }) => {
                 return !!session?.data;
             },
         },
-        session: withItemData(statelessSessions(sessionConfig), {
-            User: 'id',
-        }),
+        session: withItemData(
+            statelessSessions({
+                maxAge: 60 * 60 * 24 * 360,
+                secret: COOKIE_SECRET,
+            }),
+            {
+                User: 'id',
+            },
+        ),
         extendGraphqlSchema,
     }),
 );
