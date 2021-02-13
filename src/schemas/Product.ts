@@ -2,19 +2,27 @@
 import { list } from '@keystone-next/keystone/schema';
 import { text, select, integer, relationship } from '@keystone-next/fields';
 
+/* Instruments */
+import { isSignedIn, rules } from '../../access-control';
+
 export const Product = list({
-    // TODO: access
+    access: {
+        create: isSignedIn,
+        read:   rules.canReadProducts,
+        update: rules.canManageProducts,
+        delete: rules.canManageProducts,
+    },
     fields: {
         name:        text({ isRequired: true }),
         description: text({ ui: { displayMode: 'textarea' } }),
         status:      select({
-            options: [
+            defaultValue: 'DRAFT',
+            options:      [
                 { label: 'Draft', value: 'DRAFT' },
                 { label: 'Available', value: 'AVAILABLE' },
                 { label: 'Unavailable', value: 'UNAVAILABLE' },
             ],
-            defaultValue: 'DRAFT',
-            ui:           {
+            ui: {
                 displayMode: 'segmented-control',
                 createView:  { fieldMode: 'hidden' },
             },
@@ -28,6 +36,12 @@ export const Product = list({
                 inlineCreate: { fields: [ 'image', 'altText' ] },
                 inlineEdit:   { fields: [ 'image', 'altText' ] },
             },
+        }),
+        user: relationship({
+            ref:          'User.products',
+            defaultValue: args => ({
+                connect: { id: args.context.session.itemId },
+            }),
         }),
     },
 });

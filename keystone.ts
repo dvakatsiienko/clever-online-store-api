@@ -9,6 +9,7 @@ import {
 
 /* Instruments */
 import * as schemas from './src/schemas';
+import { permissionsList } from './src/schemas/permissionFields';
 import { sendPasswordResetEmail } from './src/lib';
 import { extendGraphqlSchema } from './src/mutations';
 import { insertSeedData } from './seed-data';
@@ -57,18 +58,14 @@ export default withAuth(
             /**
              * Show the UI only for people who passed the test.
              */
-            isAccessAllowed: ({ session }) => {
-                return !!session?.data;
-            },
+            isAccessAllowed: ctx => !!ctx.session?.data,
         },
         session: withItemData(
             statelessSessions({
                 maxAge: 60 * 60 * 24 * 360,
                 secret: COOKIE_SECRET,
             }),
-            {
-                User: 'id',
-            },
+            { User: `id name email role { ${permissionsList.join(' ')} }` },
         ),
         extendGraphqlSchema,
     }),

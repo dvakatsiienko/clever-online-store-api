@@ -9,7 +9,16 @@ const {
     CLOUDINARY_SECRET: apiSecret,
 } = process.env;
 
+/* Instruments */
+import { isSignedIn, permissions } from '../../access-control';
+
 export const ProductImage = list({
+    access: {
+        create: isSignedIn,
+        read:   () => true,
+        update: permissions.canManageProducts,
+        delete: permissions.canManageProducts,
+    },
     fields: {
         image: cloudinaryImage({
             cloudinary: { cloudName, apiKey, apiSecret, folder: 'sickfits' },
