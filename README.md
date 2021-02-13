@@ -12,7 +12,7 @@ An application is built with the following technology solutions:
 
 📡 &nbsp; **Backend**:
 
--   [Keystone-](https://next.keystonejs.com/) — headless CMS and GraphQL API
+-   [Keystone](https://next.keystonejs.com/) — headless CMS and GraphQL API
 -   [MongoDB](https://www.mongodb.com/) — database solution
 -   [Nodemailer](https://nodemailer.com/about/) — emailing solution
 -   [Stripe](https://stripe.com/) — payment solution
