@@ -27,7 +27,7 @@ export const sendPasswordResetEmail = async (
         from:    'imagnum.satellite@gmail.com',
         subject: 'Your password reset token!',
         html:    makeNiceEmail(`Your Password Reset Token is here!
-        <a target="_blank" ref="noreferrer noopener" href="${FRONTEND_URL_DEV}/reset?token=${resetToken}">Click Here to reset</a>
+        <a target="_blank" ref="noreferrer noopener" href="${FRONTEND_URL_DEV}/setup-new-password?token=${resetToken}">Click Here to reset</a>
       `),
     });
 

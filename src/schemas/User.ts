@@ -3,11 +3,11 @@ import { list } from '@keystone-next/keystone/schema';
 import { text, password, relationship } from '@keystone-next/fields';
 
 /* Instruments */
-import { isSignedIn, permissions, rules } from '../../access-control';
+import { permissions, rules } from '../../access-control';
 
 export const User = list({
     access: {
-        create: isSignedIn,
+        create: () => true,
         read:   rules.canManageUsers,
         update: rules.canManageUsers,
         delete: permissions.canManageUsers,
