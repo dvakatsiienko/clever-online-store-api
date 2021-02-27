@@ -1,5 +1,5 @@
 {
-    "name": "online-store-sickfits-api",
+    "name": "clever-online-store-api",
     "version": "0.0.1",
     "private": true,
     "scripts": {
@@ -15,10 +15,10 @@
         "@keystone-next/fields": "5.0.0",
         "@keystone-next/keystone": "10.0.0",
         "@keystone-next/types": "13.0.0",
-        "@keystonejs/server-side-graphql-client": "2.0.0",
+        "@keystonejs/server-side-graphql-client": "2.1.0",
         "dotenv": "8.2.0",
         "next": "10.0.7",
-        "nodemailer": "6.4.18",
+        "nodemailer": "6.5.0",
         "react": "17.0.1",
         "react-dom": "17.0.1",
         "stripe": "8.137.0"
@@ -26,13 +26,13 @@
     "devDependencies": {
         "@types/dotenv": "8.2.0",
         "@types/nodemailer": "6.4.0",
-        "@typescript-eslint/eslint-plugin": "4.15.1",
-        "@typescript-eslint/parser": "4.15.1",
+        "@typescript-eslint/eslint-plugin": "4.15.2",
+        "@typescript-eslint/parser": "4.15.2",
         "babel-eslint": "10.1.0",
         "eslint": "7.20.0",
         "eslint-plugin-react": "7.22.0",
         "eslint-plugin-react-hooks": "4.2.0",
         "prettier": "2.2.1",
-        "typescript": "4.1.5"
+        "typescript": "4.2.2"
     }
 }

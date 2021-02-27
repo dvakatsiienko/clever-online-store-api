@@ -40,7 +40,11 @@ export default withAuth(
     config({
         server: {
             cors: {
-                origin:      [ FRONTEND_URL_DEV, FRONTEND_URL_PROD ],
+                origin: [
+                    FRONTEND_URL_DEV,
+                    FRONTEND_URL_PROD,
+                    'http://0.0.0.0:7777',
+                ],
                 credentials: true,
             },
         },
