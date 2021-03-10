@@ -7,7 +7,7 @@ import { stripeConfig } from '../../lib';
 import { gql } from '../../helpers';
 
 export const checkout = async (
-    root: any,
+    _: any, // eslint-disable-line
     args: AddToCartArgs,
     ctx: KeystoneContext,
 ): Promise<types.OrderCreateInput> => {

@@ -1,6 +1,8 @@
 /* Core */
 import { list } from '@keystone-next/keystone/schema';
-import { virtual, text, integer, relationship } from '@keystone-next/fields';
+import {
+    virtual, text, integer, relationship
+} from '@keystone-next/fields';
 
 /* Instruments */
 import { formatMoney } from '../helpers';

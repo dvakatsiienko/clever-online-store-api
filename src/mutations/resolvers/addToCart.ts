@@ -5,7 +5,7 @@ import { KeystoneContext } from '@keystone-next/types';
 import * as types from '../../../.keystone/schema-types';
 
 export const addToCart = async (
-    root: any,
+    _: any, // eslint-disable-line
     args: AddToCartArgs,
     ctx: KeystoneContext,
 ): Promise<types.CartItemCreateInput> => {
