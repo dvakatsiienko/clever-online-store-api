@@ -5585,6 +5585,11 @@ eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
+eslint-plugin-align-import@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-align-import/-/eslint-plugin-align-import-1.0.0.tgz#3fcc92f87c3d20acfa39da9c8834c899548cd153"
+  integrity sha512-bUUcAssxWgsmIvDnREgBrIOtNkLcr2QfZf/zjZDtq8LqxKm9krFt2eSRKNTqIoEnEy8EQ4k8qBkm8azQxyC98Q==
+
 eslint-plugin-import@2.22.1:
   version "2.22.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.22.1.tgz#0896c7e6a0cf44109a2d97b95903c2bb689d7702"
