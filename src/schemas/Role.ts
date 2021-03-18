@@ -1,10 +1,10 @@
 /* Core */
-import { list } from '@keystone-next/keystone/schema';
+import { list }               from '@keystone-next/keystone/schema';
 import { text, relationship } from '@keystone-next/fields';
 
 /* Instruments */
 import { permissionFields } from './permissionFields';
-import { permissions } from '../../access-control';
+import { permissions }      from '../../access-control';
 
 export const Role = list({
     access: {

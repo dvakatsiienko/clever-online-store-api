@@ -1,11 +1,11 @@
 /* Core */
-import { list } from '@keystone-next/keystone/schema';
+import { list }                            from '@keystone-next/keystone/schema';
 import {
     virtual, text, integer, relationship
 } from '@keystone-next/fields';
 
 /* Instruments */
-import { formatMoney } from '../helpers';
+import { formatMoney }       from '../helpers';
 import { isSignedIn, rules } from '../../access-control';
 
 export const Order = list({

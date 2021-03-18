@@ -2,7 +2,7 @@
 import { graphQLSchemaExtension } from '@keystone-next/keystone/schema';
 
 /* Instruments */
-import { gql } from '../helpers';
+import { gql }        from '../helpers';
 import * as resolvers from './resolvers';
 
 export const extendGraphqlSchema = graphQLSchemaExtension({

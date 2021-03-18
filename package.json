@@ -7,10 +7,11 @@
         "build": "keystone-next build",
         "serve": "keystone-next start",
         "seed-data": "keystone-next --seed-data",
-        "prepare": "husky install",
         "check-all": "run-p check:*",
         "check:ts": "tsc --project ./tsconfig.json",
-        "check:eslint": "eslint --max-warnings 10 ./src"
+        "prettify": "prettier-eslint --write \"$PWD/src/**/*.{ts,tsx}\"",
+        "check:eslint": "eslint --max-warnings 10 ./src",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@keystone-next/admin-ui": "11.0.0",
@@ -44,6 +45,7 @@
         "husky": "5.1.3",
         "npm-run-all": "4.1.5",
         "prettier": "2.2.1",
+        "prettier-eslint-cli": "5.0.1",
         "tsconfig-dva": "0.0.3",
         "typescript": "4.2.3"
     }

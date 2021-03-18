@@ -1,7 +1,7 @@
 /* Core */
-import { list } from '@keystone-next/keystone/schema';
+import { list }               from '@keystone-next/keystone/schema';
 import { text, relationship } from '@keystone-next/fields';
-import { cloudinaryImage } from '@keystone-next/cloudinary';
+import { cloudinaryImage }    from '@keystone-next/cloudinary';
 
 /* Instruments */
 import { isSignedIn, permissions } from '../../access-control';
@@ -22,7 +22,10 @@ export const ProductImage = list({
     fields: {
         image: cloudinaryImage({
             cloudinary: {
-                cloudName, apiKey, apiSecret, folder: 'sickfits',
+                cloudName,
+                apiKey,
+                apiSecret,
+                folder: 'sickfits',
             },
             label: 'Source',
         }),
